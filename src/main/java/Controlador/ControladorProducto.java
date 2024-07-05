@@ -43,7 +43,7 @@ public class ControladorProducto extends HttpServlet {
 		if(accion!=null){
 			switch(accion){
 			case "Modificar":
-				int codigo=Integer.parseInt(request.getParameter("cod"));
+				String codigo=request.getParameter("cod");
 				//asignar el codigo...
 				producto.setCod(codigo);
 				Producto buscarcod=crud.BuscarProducto(producto);
@@ -59,7 +59,7 @@ public class ControladorProducto extends HttpServlet {
 				//salimos
 				break;
 			case "Eliminar":
-				int codeliminar=Integer.parseInt(request.getParameter("cod"));
+				String codeliminar=request.getParameter("cod");
 				//asignamos el codigo a eliminar
 				producto.setCod(codeliminar);
 				//invocamos al metodo eliminar...
@@ -99,7 +99,7 @@ public class ControladorProducto extends HttpServlet {
 				
 				//recuperamos los valores del formulario...
 				String codigo=request.getParameter("codigo");
-				String stock=request.getParameter("stock");
+				int stock=Integer.parseInt("stock");
 				String nombre=request.getParameter("nombre producto");
 				String descrip=request.getParameter("descripcion");
 			
